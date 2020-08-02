@@ -1,12 +1,13 @@
 # Importing the Libraries
+import logging
+import os
+import pickle
+import sys
+import urllib
+
+import flask
 from flask import Flask, request, render_template
 from flask_cors import CORS
-import pickle
-import flask
-import os
-import urllib
-import logging
-import sys
 
 # Loading Flask and assigning the model variable
 app = Flask(__name__)
