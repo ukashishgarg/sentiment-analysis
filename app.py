@@ -5,11 +5,16 @@ import pickle
 import flask
 import os
 import urllib
+import logging
+import sys
 
 # Loading Flask and assigning the model variable
 app = Flask(__name__)
 CORS(app)
 app = flask.Flask(__name__, template_folder='templates')
+
+app.logger.addHandler(logging.StreamHandler(sys.stdout))
+app.logger.setLevel(logging.ERROR)
 
 with open('pickle_model_senti.pkl', 'rb') as handle:
     model = pickle.load(handle)
