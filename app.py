@@ -16,12 +16,14 @@ def get_text_sentiment(text):
     using textblob's sentiment method
     '''
     # create TextBlob object of passed app text
+    text = text.replace("+", " ")
     analysis = TextBlob(text)
+
     # set sentiment
-    if analysis.sentiment.polarity > 0:
+    if not analysis.sentiment.polarity < 0:
         return 'POSITIVE'
-    elif analysis.sentiment.polarity == 0:
-        return 'NEUTRAL'
+    # elif analysis.sentiment.polarity == 0:
+    #     return 'MIXED'
     else:
         return 'NEGATIVE'
 
